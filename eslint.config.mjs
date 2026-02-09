@@ -48,7 +48,6 @@ export default [
         version: 'detect',
       },
       'import/resolver': {
-        'typescript': {},
         node: {
           paths: ['src'],
         },
@@ -161,6 +160,7 @@ export default [
       'playwright/valid-expect': 'off',
 
       // other plugin rules
+      'no-only-tests/no-only-tests': 'error',
       'no-relative-import-paths/no-relative-import-paths': [
         'error',
         { rootDir: 'src' },
