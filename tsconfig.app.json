@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src", // Root of your project
+    "baseUrl": "./src", // Root of your project
     "paths": {
       "*": ["*"]
     },
@@ -29,5 +29,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["./src"]
 }

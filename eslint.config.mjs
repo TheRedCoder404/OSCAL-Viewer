@@ -48,6 +48,7 @@ export default [
         version: 'detect',
       },
       'import/resolver': {
+        'typescript': {},
         node: {
           paths: ['src'],
         },
@@ -160,10 +161,19 @@ export default [
       'playwright/valid-expect': 'off',
 
       // other plugin rules
-      'no-only-tests/no-only-tests': 'error',
       'no-relative-import-paths/no-relative-import-paths': [
         'error',
-        { rootDir: 'src' },
+        {
+          rootDir: 'src',
+          patterns: [
+            {
+              "group": ["./*", "../*"],
+              "message": "Please use absolute paths for components.",
+              // ERLAUBE relative Pfade für CSS/Assets
+              "importNames": ["*.css", "*.scss", "*.svg", "*.png"]
+            }
+          ]
+        },
       ],
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
