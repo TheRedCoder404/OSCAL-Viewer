@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "src", // Root of your project
+    "paths": {
+      "routing/*": ["src/routing/*"] // Maps 'routing/...' to 'src/routing/...'
+    },
+
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
     "useDefineForClassFields": true,
