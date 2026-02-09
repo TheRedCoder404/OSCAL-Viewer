@@ -3,16 +3,16 @@ import GroupSection from './components/GroupSection'
 import './App.css'
 
 function App() {
-  return (
-    <div className="app">
-      <h1>{catalogData.catalog.metadata.title}</h1>
-      <div className="groups">
-        {catalogData.catalog.groups.map((group) => (
-          <GroupSection key={group.id} group={group} />
-        ))}
-      </div>
-    </div>
-  )
+    return (
+        <div className="app">
+            <h1>{catalogData.catalog.metadata.title}</h1>
+            <div className="groups">
+                {catalogData.catalog.groups.map((group) => (
+                    <GroupSection key={group.id} group={group} />
+                ))}
+            </div>
+        </div>
+    )
 }
 
 export default App
