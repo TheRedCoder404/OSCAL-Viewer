@@ -165,14 +165,8 @@ export default [
         'error',
         {
           rootDir: 'src',
-          patterns: [
-            {
-              "group": ["./*", "../*"],
-              "message": "Please use absolute paths for components.",
-              // ERLAUBE relative Pfade für CSS/Assets
-              "importNames": ["*.css", "*.scss", "*.svg", "*.png"]
-            }
-          ]
+          prefix: "",
+          allowSameFolder: true
         },
       ],
       'unused-imports/no-unused-imports': 'error',
