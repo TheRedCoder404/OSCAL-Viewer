@@ -1,42 +1,142 @@
-#root {
-  max-width: 1280px;
+.app {
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 1.6em;
+  margin-bottom: 1.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.group {
+  margin-bottom: 0.25rem;
+}
+
+.group-header,
+.subgroup-header,
+.control-header {
+  cursor: pointer;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.group-header {
+  background: #2a2a5a;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.group-header:hover {
+  background: #3a3a7a;
+}
+
+.subgroup-header {
+  background: #333;
+  font-size: 1em;
+}
+
+.subgroup-header:hover {
+  background: #444;
+}
+
+.control-header {
+  background: #2a2a2a;
+  font-size: 0.95em;
+}
+
+.control-header:hover {
+  background: #383838;
+}
+
+.active {
+  font-weight: 700;
+}
+
+.arrow {
+  font-size: 0.7em;
+  width: 1em;
+  flex-shrink: 0;
+}
+
+.group-id,
+.ctrl-id {
+  opacity: 0.5;
+  font-size: 0.85em;
+}
+
+.sub-label {
+  background: #555;
+  border-radius: 3px;
+  padding: 0 0.4em;
+  font-size: 0.8em;
+}
+
+.subgroups {
+  padding-left: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.subgroup {
+  margin-bottom: 0.15rem;
+}
+
+.controls {
+  padding-left: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.control {
+  margin-bottom: 0.15rem;
+}
+
+.ctrl-body {
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.ctrl-body .part {
+  margin-bottom: 0.8rem;
+}
+
+.ctrl-body p {
+  margin: 0.3rem 0 0;
+}
+
+.guidance {
+  opacity: 0.75;
+  border-left: 2px solid #555;
+  padding-left: 0.8rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .group-header {
+    background: #d0d0f0;
   }
-  to {
-    transform: rotate(360deg);
+  .group-header:hover {
+    background: #b8b8e8;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .subgroup-header {
+    background: #e8e8e8;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .subgroup-header:hover {
+    background: #ddd;
+  }
+  .control-header {
+    background: #f0f0f0;
+  }
+  .control-header:hover {
+    background: #e4e4e4;
+  }
+  .sub-label {
+    background: #ccc;
+  }
+  .guidance {
+    border-left-color: #bbb;
+  }
 }
