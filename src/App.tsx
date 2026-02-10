@@ -1,5 +1,5 @@
 import catalogData from '../Stand-der-Technik-Bibliothek-main/Anwenderkataloge/Grundschutz++/Grundschutz++-catalog.json'
-import GroupSection from './components/GroupSection'
+import GroupSection from './components/Catalog/GroupSection'
 import './App.css'
 
 function App() {

@@ -25,7 +25,7 @@ export default function ControlItem({ctrl}: { ctrl: any }) {
                 {guidance && (
                     <div className="guidance">
                         <strong>Erläuterung:</strong>
-                        <p>{resolveProse(guidance.prose ?? '', ctrl.params)}</p>
+                        <p style={{textAlign: 'justify'}}>{resolveProse(guidance.prose ?? '', ctrl.params)}</p>
                     </div>
                 )}
             </div>
