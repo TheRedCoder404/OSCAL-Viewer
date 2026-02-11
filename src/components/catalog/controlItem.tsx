@@ -1,4 +1,4 @@
-import CatalogAccordion from './CatalogAccordion'
+import CatalogAccordion from './accordion'
 
 /** Helferklasse, um param durch tatsächlichen Wert zu ersetzen **/
 function resolveProse(prose: string, params?: any[]): string {

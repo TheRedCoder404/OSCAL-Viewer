@@ -1,5 +1,5 @@
-import CatalogAccordion from './CatalogAccordion'
-import ControlItem from './ControlItem'
+import CatalogAccordion from './accordion'
+import ControlItem from './controlItem'
 
 export default function GroupSection({group}: { group: any }) {
     return (
