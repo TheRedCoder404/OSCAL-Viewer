@@ -1,36 +1,21 @@
 .app {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-h1 {
-    font-size: 1.6em;
-    margin-bottom: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .ctrl-body {
-    padding: 0.8rem 1rem;
-    font-size: 0.9em;
-    line-height: 1.6;
-}
-
-.ctrl-body .part {
-    margin-bottom: 0.8rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.9em;
+  line-height: 1.6;
 }
 
 .ctrl-body p {
-    margin: 0.3rem 0 0;
+  margin: 0.3rem 0 0;
 }
 
 .guidance {
-    opacity: 0.75;
-    border-left: 2px solid #555;
-    padding-left: 0.8rem;
-}
-
-@media (prefers-color-scheme: light) {
-    .guidance {
-        border-left-color: #bbb;
-    }
+  opacity: 0.75;
+  border-left: 2px solid #ccc;
+  padding-left: 0.8rem;
 }
