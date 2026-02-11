@@ -4,13 +4,14 @@ import { useUserPreference } from 'hooks/preferences.ts';
 
 const AppToolbar: React.FC = () => {
     const [useDarkTheme, setDarkTheme] = useUserPreference('useDarkTheme');
+    const darkmodeToggle = false;
     
     return (
         <AppBar
             color={'inherit'}
             position="fixed"
             sx={{
-                width: 'full',
+                width: 'calc(100% - 200px)',
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
             }}
@@ -23,7 +24,7 @@ const AppToolbar: React.FC = () => {
                         alignItems: 'center',
                     }}
                 >
-                    <FormControlLabel
+                    {darkmodeToggle && <FormControlLabel
                         control={
                             <Checkbox
                                 checked={useDarkTheme}
@@ -34,7 +35,7 @@ const AppToolbar: React.FC = () => {
                             />
                         }
                         label={'Dark Mode'}
-                    />
+                    />}
                     <h1>OSCAL-Viewer</h1>
                 </Stack>
             </Toolbar>

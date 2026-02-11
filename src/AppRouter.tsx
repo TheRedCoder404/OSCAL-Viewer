@@ -8,7 +8,8 @@ import {
 import type { Router } from '@remix-run/router';
 import { Suspense, useMemo } from 'react';
 import Overview from 'routing/Overview.tsx';
-import {PageNotFound} from "./routing/pageNotFound/PageNotFound.tsx";
+import { PageNotFound } from './routing/pageNotFound/PageNotFound.tsx';
+import Catalog from './routing/Catalog.tsx';
 
 type RoutesProps = {
     children?: React.ReactNode[] | React.ReactNode;
@@ -32,6 +33,14 @@ const createRouter = (children: React.ReactNode): Router => createBrowserRouter(
             element={
                 <Suspense fallback={'Loading...'}>
                     <Overview/>
+                </Suspense>
+            }
+        />
+        <Route
+            path={'/catalog'}
+            element={
+                <Suspense fallback={'Loading...'}>
+                    <Catalog/>
                 </Suspense>
             }
         />

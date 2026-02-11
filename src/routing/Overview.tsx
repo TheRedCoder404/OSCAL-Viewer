@@ -1,23 +1,14 @@
-import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import * as React from 'react';
-import { OSCALCatalogLoader } from '@easydynamics/oscal-react-library';
-import OverviewToolbar from 'components/overview/OverviewToolbar.tsx';
 import { Box } from '@mui/material';
+import OSCALCatalogImporter from 'components/overview/catalogImporter/OSCALCatalogImporter.tsx';
 
 const Overview = (): React.ReactNode => {
-    const [oscalData, setOscalData] = useState(null);
-    
     return (
-        <Box>
-            <OverviewToolbar
-                setOscalData={setOscalData}
-            />
+        <Box sx={{ mt: 8, mb: 2 }}>
             <Helmet>Overview</Helmet>
 
-            {oscalData && (
-                <OSCALCatalogLoader onResolutionComplete={(): void => {}} catalog={oscalData} parentUrl={'http://localhost:5173/'}/>
-            )}
+            <OSCALCatalogImporter/>
         </Box>
     );
 };

@@ -16,6 +16,7 @@ export interface FileInputProps {
     onChange?: (files: FileList) => void,
     disabled?: boolean,
     children?: ReactNode,
+    standardButtonText?: string,
 }
 
 /**
@@ -23,7 +24,7 @@ export interface FileInputProps {
  */
 const FileInput: React.FC<FileInputProps> = (props): React.ReactElement => {
     const {
-        accept, multiple = false, onChange, disabled = false, children,
+        accept, multiple = false, onChange, disabled = false, children, standardButtonText,
     } = props;
 
     const inputRef = useRef<HTMLInputElement>(null);
@@ -54,7 +55,7 @@ const FileInput: React.FC<FileInputProps> = (props): React.ReactElement => {
                         startIcon={<CloudUploadIcon className="FileInput-Icon"/>}
                         disabled={disabled}
                     >
-                        Import
+                        {standardButtonText ?? 'Import'}
                     </Button>
                 )}
             </FormLabel>

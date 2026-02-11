@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { ToolbarItemBox, ToolbarRow } from 'components/utility/StyledComponents.tsx';
-import FileInput from 'components/FileInput.tsx';
-import { Row } from 'components/flexbox/Row.tsx';
+import FileInput from 'components/utility/FileInput.tsx';
+import type { catalog } from 'types/oscal-types.ts';
 
 type OverviewToolbarProps = {
-    setOscalData: (data: any) => void;
+    setOscalData: (data: catalog) => void;
 };
 
 const OverviewToolbar = (props: OverviewToolbarProps): React.ReactElement => {
@@ -24,7 +24,9 @@ const OverviewToolbar = (props: OverviewToolbarProps): React.ReactElement => {
         reader.onload = (e) => {
             if (e && e.target && e.target.result && typeof e.target.result === 'string') {
                 const json = JSON.parse(e.target.result);
-                setOscalData(json);
+                // OSCAL files wrap the catalog in a root object
+                const catalogData = json.catalog || json;
+                setOscalData(catalogData as catalog);
                 return;
             }
 
@@ -32,20 +34,20 @@ const OverviewToolbar = (props: OverviewToolbarProps): React.ReactElement => {
         };
 
         reader.readAsText(file);
+        return;
     };
     
     return (
-        <Box role={'toolbar'}>
+        <Box role={'toolbar'} sx={{ width: '100%' }}>
             <ToolbarRow>
-                <Row alignItems={'center'}>
-                    <ToolbarItemBox>
-                        <FileInput
-                            onChange={handleUploadOscalData}
-                            accept={'application/json'}
-                            multiple={false}
-                        />
-                    </ToolbarItemBox>
-                </Row>
+                <ToolbarItemBox sx={{ marginLeft: 'auto' }}>
+                    <FileInput
+                        onChange={handleUploadOscalData}
+                        accept={'application/json'}
+                        multiple={false}
+                        standardButtonText={'Import Catalog'}
+                    />
+                </ToolbarItemBox>
             </ToolbarRow>
         </Box>
     );

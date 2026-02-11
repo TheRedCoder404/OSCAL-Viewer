@@ -1,9 +1,13 @@
 import './App.css';
+import './theme.css';
 import * as React from 'react';
-import MainApp from './routing/app/MainApp';
-import {createTheme, CssBaseline, ThemeProvider} from '@mui/material';
+import MainApp from './MainApp.tsx';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useMemo, useState } from 'react';
-import { UserPreferencesContext, type UserPreferenceType } from './contexts/UserPreferencesContext.ts';
+import { UserPreferencesContext, type UserPreferenceType } from 'contexts/UserPreferencesContext.ts';
+import { Helmet } from 'react-helmet';
+import favicon from 'assets/favicon.svg';
+import CatalogsLoadedProvider from 'contexts/CatalogsLoadedContext.tsx';
 
 const darkTheme = createTheme({
     palette: {
@@ -41,7 +45,7 @@ const lightTheme = createTheme({
 
 
 const defaultPreferences: UserPreferenceType = {
-    useDarkTheme: true,
+    useDarkTheme: false,
 };
 
 const storageName = 'oscal-viewer-user-pref';
@@ -67,9 +71,14 @@ const App = (): React.ReactNode => {
     return (
         <>
             <ThemeProvider theme={theme}>
+                <Helmet>
+                    <link rel="icon" type="image/x-icon" href={favicon}/>
+                </Helmet>
                 <UserPreferencesContext.Provider value={{ userPrefs, setUserPrefs: setUserPreferences }}>
-                    <CssBaseline/>
-                    <MainApp/>
+                    <CatalogsLoadedProvider>
+                        <CssBaseline/>
+                        <MainApp/>
+                    </CatalogsLoadedProvider>
                 </UserPreferencesContext.Provider>
             </ThemeProvider>
         </>

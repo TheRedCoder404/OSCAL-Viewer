@@ -18,7 +18,8 @@ export const ToolbarRow = createStyledComponent(
     ({ theme }) => ({
         backgroundColor: theme.palette.background.paper,
         position: 'fixed',
-        width: 'calc(100% - 200px)',    // the chromium cypress browser does not seem to support better width styles
+        left: 'var(--appSideBarWidth)',
+        width: 'calc(100% - var(--appSideBarWidth))',
         paddingRight: theme.spacing(2),
         paddingTop: theme.spacing(2),
         borderBottom: `solid 1px ${theme.palette.divider}`,

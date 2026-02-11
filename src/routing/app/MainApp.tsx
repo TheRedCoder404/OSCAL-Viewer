@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Box, styled, useTheme } from '@mui/material';
 import AppRouter from 'AppRouter';
 import { Outlet } from 'react-router-dom';
-import AppToolbar from 'components/AppToolbar.tsx';
+import AppToolbar from 'components/app/AppToolbar.tsx';
+import AppSidebar from 'components/app/AppSidebar.tsx';
 
 const Root = styled('div')(({ theme }) => ({
     '& .notificationStyles': {
@@ -17,12 +18,14 @@ const MainApp = (): React.ReactNode => {
         <Root>
             <Box
                 sx={{
+                    marginLeft: theme.spacing(25),
                     marginTop: theme.spacing(8),
                     padding: theme.spacing(1.875),
                 }}
             >
                 <AppRouter>
                     <AppToolbar/>
+                    <AppSidebar/>
                     <Outlet/>
                 </AppRouter>
             </Box>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="320" viewBox="0 0 520 320">
+    <title>OSCAL Viewer - Logo (wordmark as paths)</title>
+    <defs>
+        <style>
+            :root { --navy:#0B1F3B; }
+            .navy { fill: var(--navy); }
+        </style>
+    </defs>
+
+    <!-- Icon -->
+    <g class="navy" transform="translate(160,26) scale(0.90)">
+        <path fill-rule="evenodd" d="M30 34H170V174H30Z M48 52H152V156H48Z"/>
+        <polygon points="30,76 12,104 30,132 30,118 42,104 30,90"/>
+        <polygon points="170,88 188,104 170,120"/>
+        <rect x="92" y="14" width="46" height="18"/>
+        <polygon points="170,34 190,34 170,54"/>
+        <polygon points="108,174 148,174 170,152 170,174"/>
+
+        <rect x="62" y="70" width="78" height="18"/>
+        <rect x="62" y="88" width="18" height="62"/>
+        <rect x="140" y="70" width="18" height="80"/>
+        <rect x="62" y="132" width="78" height="18"/>
+        <rect x="52" y="100" width="116" height="14"/>
+
+        <path fill-rule="evenodd" d="M110 107a23 23 0 1 0 0.001 0Z M110 107a12 12 0 1 1 -0.001 0Z"/>
+        <circle cx="110" cy="107" r="8"/>
+    </g>
+
+    <!-- Wordmark as block paths (sturdy, fontless) -->
+    <g class="navy" transform="translate(74,258)">
+        <!-- Simple geometric caps, each glyph = 24x34 box, spacing 10 -->
+        <!-- O -->
+        <path fill-rule="evenodd" d="M0 0h24v34H0z M6 6h12v22H6z"/>
+        <!-- S -->
+        <path d="M34 0h24v8H42v6h16v8H42v6h16v6H34v-8h16v-6H34v-8h16V8H34z"/>
+        <!-- C -->
+        <path d="M68 0h24v8H74v18h18v8H68z"/>
+        <!-- A -->
+        <path fill-rule="evenodd" d="M102 0h24v34h-8v-8h-8v8h-8z M110 8v10h8V8z"/>
+        <!-- L -->
+        <path d="M136 0h8v26h16v8h-24z"/>
+
+        <!-- space -->
+
+        <!-- V -->
+        <path d="M182 0h8v18l4 8 4-8V0h8v18l-10 16h-4l-10-16z"/>
+        <!-- I -->
+        <path d="M224 0h24v8h-8v18h8v8h-24v-8h8V8h-8z"/>
+        <!-- E -->
+        <path d="M258 0h24v8h-16v6h14v8h-14v6h16v8h-24z"/>
+        <!-- W -->
+        <path d="M292 0h8v22l4-6h4l4 6V0h8v34h-8v-10l-6-8-6 8v10h-8z"/>
+        <!-- E -->
+        <path d="M336 0h24v8h-16v6h14v8h-14v6h16v8h-24z"/>
+        <!-- R -->
+        <path fill-rule="evenodd" d="M370 0h18c6 0 10 4 10 10 0 5-3 9-8 10l8 14h-9l-7-12h-4v12h-8z M378 8v6h9c2 0 3-1 3-3 0-2-1-3-3-3z"/>
+    </g>
+</svg>
