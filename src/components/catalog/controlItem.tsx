@@ -14,21 +14,23 @@ export default function ControlItem({ctrl}: { ctrl: any }) {
     const guidance = ctrl.parts?.find((p: any) => p.name === 'guidance')
 
     return (
-        <CatalogAccordion id={ctrl.id} title={ctrl.title}>
-            <div className="ctrl-body" style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                {statement && (
-                    <div className="statement">
-                        <p>{resolveProse(statement.prose ?? '', ctrl.params)}</p>
-                    </div>
-                )}
-                
-                {guidance && (
-                    <div className="guidance">
-                        <strong>Erläuterung:</strong>
-                        <p style={{textAlign: 'justify'}}>{resolveProse(guidance.prose ?? '', ctrl.params)}</p>
-                    </div>
-                )}
-            </div>
-        </CatalogAccordion>
+        <div className="control-item">
+            <CatalogAccordion id={ctrl.id} title={ctrl.title}>
+                <div className="ctrl-body" style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+                    {statement && (
+                        <div className="statement">
+                            <p>{resolveProse(statement.prose ?? '', ctrl.params)}</p>
+                        </div>
+                    )}
+
+                    {guidance && (
+                        <div className="guidance">
+                            <strong>Erläuterung:</strong>
+                            <p style={{textAlign: 'justify'}}>{resolveProse(guidance.prose ?? '', ctrl.params)}</p>
+                        </div>
+                    )}
+                </div>
+            </CatalogAccordion>
+        </div>
     )
 }
