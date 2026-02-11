@@ -1,35 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import * as React from 'react';
+import MainApp from './routing/app/MainApp';
+import {createTheme, CssBaseline, ThemeProvider} from '@mui/material';
+import { useMemo, useState } from 'react';
+import { UserPreferencesContext, type UserPreferenceType } from './contexts/UserPreferencesContext.ts';
 
-function App() {
-  const [count, setCount] = useState(0)
+const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+    components: {
+        MuiCard: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    border: 'solid 1px',
+                    borderColor: theme.palette.grey['900'],
+                    boxShadow: theme.shadows[1],
+                }),
+            },
+        },
+    },
+});
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const lightTheme = createTheme({
+    palette: {
+        mode: 'light',
+    },
+    components: {
+        MuiCard: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    border: 'solid 1px',
+                    borderColor: theme.palette.grey['300'],
+                    boxShadow: theme.shadows[1],
+                }),
+            },
+        },
+    },
+});
 
-export default App
+
+const defaultPreferences: UserPreferenceType = {
+    useDarkTheme: true,
+};
+
+const storageName = 'oscal-viewer-user-pref';
+const setPreferences = (preference: UserPreferenceType): void => {
+    localStorage.setItem(storageName, JSON.stringify(preference));
+};
+
+export const getStoredPreferences = (): UserPreferenceType => {
+    const preference = localStorage.getItem(storageName);
+    const overridePreferences = preference ? JSON.parse(preference) as UserPreferenceType : {};
+    return { ...defaultPreferences, ...overridePreferences };
+};
+
+const App = (): React.ReactNode => {
+    const [userPrefs, setUserPrefs] = useState<UserPreferenceType>(getStoredPreferences());
+    const theme = useMemo(() => (userPrefs.useDarkTheme ? darkTheme : lightTheme), [userPrefs.useDarkTheme]);
+
+    const setUserPreferences = (userPreferences: UserPreferenceType): void => {
+        setPreferences(userPreferences);
+        setUserPrefs(userPreferences);
+    };
+    
+    return (
+        <>
+            <ThemeProvider theme={theme}>
+                <UserPreferencesContext.Provider value={{ userPrefs, setUserPrefs: setUserPreferences }}>
+                    <CssBaseline/>
+                    <MainApp/>
+                </UserPreferencesContext.Provider>
+            </ThemeProvider>
+        </>
+    );
+};
+
+export default App;
