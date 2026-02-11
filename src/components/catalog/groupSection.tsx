@@ -6,15 +6,15 @@ interface GroupSectionProps {
     group: any
     selected?: boolean
     selectionDisabled?: boolean
+    onToggle?: (id: string, checked: boolean) => void
 }
 
-export default function GroupSection({group, selected = false, selectionDisabled = false}: GroupSectionProps) {
+export default function GroupSection({group, selected = false, selectionDisabled = false, onToggle}: GroupSectionProps) {
     const checkbox = (
         <BausteinCheckbox
             checked={selected}
             disabled={selectionDisabled}
-            onChange={() => {
-            }}
+            onChange={(checked) => onToggle?.(group.id, checked)}
         />
     )
 
