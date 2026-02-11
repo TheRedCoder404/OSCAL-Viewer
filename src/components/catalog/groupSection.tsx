@@ -13,7 +13,8 @@ export default function GroupSection({group, selected = false, selectionDisabled
         <BausteinCheckbox
             checked={selected}
             disabled={selectionDisabled}
-            onChange={() => {}}
+            onChange={() => {
+            }}
         />
     )
 

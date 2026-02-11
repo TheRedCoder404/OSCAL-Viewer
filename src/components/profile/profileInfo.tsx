@@ -28,8 +28,6 @@ function InfoRow({label, value}: { label: string; value: string }) {
     )
 }
 
-const textFormat = {mt: 1.5, opacity: 0.8, lineHeight: 1.6}
-
 export default function ProfileInfo({metadata}: { metadata: Metadata }) {
     const party = metadata.parties?.[0]
 
@@ -43,7 +41,9 @@ export default function ProfileInfo({metadata}: { metadata: Metadata }) {
                 <InfoRow label="Kontakt" value={party['email-addresses'][0]}/>
                 <InfoRow label="Referenz" value={metadata.links[0].text}/>
 
-                <Typography variant="body2" sx={textFormat}>{metadata.remarks}</Typography>
+                <Typography variant="body2" sx={{mt: 1.5, opacity: 0.8, lineHeight: 1.6}}>
+                    {metadata.remarks}
+                </Typography>
             </Paper>
         </div>
     )
