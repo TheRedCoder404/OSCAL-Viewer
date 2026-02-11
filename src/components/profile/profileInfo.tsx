@@ -34,15 +34,17 @@ export default function ProfileInfo({metadata}: { metadata: Metadata }) {
     const party = metadata.parties?.[0]
 
     return (
-        <Paper variant="outlined" sx={{p: 2.5, mb: 3}}>
-            <InfoRow label="Dokumentversion" value={formatDate(metadata.version)}/>
-            <InfoRow label="OSCAL-Version" value={metadata['oscal-version']}/>
-            <InfoRow label="Zuletzt geändert" value={formatDate(metadata['last-modified'])}/>
-            <InfoRow label="Herausgeber" value={party.name}/>
-            <InfoRow label="Kontakt" value={party['email-addresses'][0]}/>
-            <InfoRow label="Referenz" value={metadata.links[0].text}/>
+        <div className="profile-info">
+            <Paper variant="outlined" sx={{p: 2.5, mb: 3}}>
+                <InfoRow label="Dokumentversion" value={formatDate(metadata.version)}/>
+                <InfoRow label="OSCAL-Version" value={metadata['oscal-version']}/>
+                <InfoRow label="Zuletzt geändert" value={formatDate(metadata['last-modified'])}/>
+                <InfoRow label="Herausgeber" value={party.name}/>
+                <InfoRow label="Kontakt" value={party['email-addresses'][0]}/>
+                <InfoRow label="Referenz" value={metadata.links[0].text}/>
 
-            <Typography variant="body2" sx={textFormat}>{metadata.remarks}</Typography>
-        </Paper>
+                <Typography variant="body2" sx={textFormat}>{metadata.remarks}</Typography>
+            </Paper>
+        </div>
     )
 }
