@@ -1,10 +1,25 @@
 import CatalogAccordion from './accordion'
 import ControlItem from './controlItem'
+import BausteinCheckbox from '../planBuilder/checkbox'
 
-export default function GroupSection({group}: { group: any }) {
+interface GroupSectionProps {
+    group: any
+    selected?: boolean
+    selectionDisabled?: boolean
+}
+
+export default function GroupSection({group, selected = false, selectionDisabled = false}: GroupSectionProps) {
+    const checkbox = (
+        <BausteinCheckbox
+            checked={selected}
+            disabled={selectionDisabled}
+            onChange={() => {}}
+        />
+    )
+
     return (
         <div className="group">
-            <CatalogAccordion id={group.id} title={group.title} bold>
+            <CatalogAccordion id={group.id} title={group.title} prefix={checkbox}>
                 {group.groups?.map((sub: any) => {
                     const label = sub.props?.find((p: any) => p.name === 'label')?.value
                     return (

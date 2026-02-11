@@ -10,19 +10,22 @@ interface CatalogAccordionProps {
     id?: string
     title: string
     label?: string
-    bold?: boolean
+    prefix?: ReactNode
     children: ReactNode
 }
 
-export default function CatalogAccordion({id, title, label, children}: CatalogAccordionProps) {
+export default function CatalogAccordion({id, title, label, prefix, children}: CatalogAccordionProps) {
     return (
-        <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
-                {label && <Chip label={label} size="small" sx={{mr: 1}}/>}
-                {id && <Typography component="span" sx={{opacity: 0.5, fontSize: '0.85em', mr: 1}}>{id}</Typography>}
-                <Typography component="span">{title}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>{children}</AccordionDetails>
-        </Accordion>
+        <div className="catalog-accordion">
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
+                    {prefix}
+                    {label && <Chip label={label} size="small" sx={{mr: 1}}/>}
+                    {id && <Typography component="span" sx={{opacity: 0.5, fontSize: '0.85em', mr: 1}}>{id}</Typography>}
+                    <Typography component="span">{title}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>{children}</AccordionDetails>
+            </Accordion>
+        </div>
     )
 }
