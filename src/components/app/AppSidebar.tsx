@@ -11,9 +11,8 @@ const AppSidebar = ():React.ReactNode => {
             open={true}
             variant="permanent"
             anchor="left"
-            PaperProps={{
-                sx: { width: 'var(--appSideBarWidth)' },
-            }}
+            slotProps={{ paper: { sx: { width: 'var(--appSideBarWidth)' } } }}
+
         >
             <Toolbar
                 variant="dense"

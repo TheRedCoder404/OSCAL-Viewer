@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import CatalogJSONParserButton from 'components/utility/CatalogJSONParserButton.tsx';
-import { Button, Grid2 } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { useManageCatalog } from 'contexts/CatalogsLoadedContext.tsx';
 import type { catalog } from 'types/oscal-types.ts';
 
@@ -28,14 +28,14 @@ const CatalogImporterListItemButtons = (props: Props): ReactElement => {
     };
     
     return (
-        <Grid2 container={true}>
-            <Grid2>
+        <Grid container={true}>
+            <Grid>
                 <CatalogJSONParserButton
                     loadCatalog={handleCatalogUpload}
                     buttonText={'Update'}
                 />
-            </Grid2>
-            <Grid2>
+            </Grid>
+            <Grid>
                 <Button
                     color="primary"
                     variant="contained"
@@ -44,8 +44,8 @@ const CatalogImporterListItemButtons = (props: Props): ReactElement => {
                 >
                     Select
                 </Button>
-            </Grid2>
-            <Grid2>
+            </Grid>
+            <Grid>
                 <Button
                     color="primary"
                     variant="contained"
@@ -54,8 +54,8 @@ const CatalogImporterListItemButtons = (props: Props): ReactElement => {
                 >
                     Delete
                 </Button>
-            </Grid2>
-        </Grid2>
+            </Grid>
+        </Grid>
     );
 };
 
