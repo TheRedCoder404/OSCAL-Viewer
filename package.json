@@ -26,7 +26,6 @@
     "vite-tsconfig-paths": "^6.1.0"
   },
   "dependencies": {
-    "@easydynamics/oscal-react-library": "^0.6.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@eslint/compat": "^2.0.2",
