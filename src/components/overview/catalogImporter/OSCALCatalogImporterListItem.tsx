@@ -6,11 +6,13 @@ import Grid2 from '@mui/material/Unstable_Grid2';
 
 type Props = {
     catalog: catalog;
+    index: number;
 };
 
 const OSCALCatalogImporterListItem = (props: Props): ReactElement => {
     const {
         catalog,
+        index,
     } = props;
     
     return (
@@ -20,7 +22,9 @@ const OSCALCatalogImporterListItem = (props: Props): ReactElement => {
                     <h3>{catalog.metadata.title}</h3>
                 </Grid2>
                 <Grid2 xs={4}>
-                    <CatalogImporterListItemButtons/>
+                    <CatalogImporterListItemButtons
+                        index={index}
+                    />
                 </Grid2>
             </Grid2>
         </ListItem>

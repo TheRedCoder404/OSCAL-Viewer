@@ -22,6 +22,12 @@ type CatalogsLoadedContextProviderProps = {
     children: React.ReactNode;
 };
 
+type useManageCatalogsReturnType = {
+    updateCatalog: (index: number, newCatalog: catalog | undefined) => void
+    deleteCatalog: (index: number) => void
+    selectCatalog: (index: number) => void
+};
+
 const defaultContext: CatalogsLoadedContextType = {
     catalogsLoaded: [],
     catalogInUse: undefined,
@@ -46,6 +52,47 @@ export const useCatalogLoader = (): CatalogLoaderType => {
     return {
         catalogInUse: context.catalogInUse,
         setCatalogInUse: context.setCatalogInUse,
+    };
+};
+
+export const useManageCatalog = (): useManageCatalogsReturnType => {
+    const context = useContext(CatalogsLoadedContext);
+
+    const deleteCatalog = (index: number): void => {
+        if (index >= context.catalogsLoaded.length) {
+            return;
+        }
+
+        const filtered = context.catalogsLoaded.filter((_, cataIndex) => cataIndex !== index);
+        context.setCatalogsLoaded(filtered);
+    };
+
+    const updateCatalog = (index: number, newCatalog: catalog | undefined): void => {
+        if (index >= context.catalogsLoaded.length) {
+            return;
+        }
+
+        if (newCatalog === undefined) {
+            return;
+        }
+
+        const newCatalogs = [...context.catalogsLoaded];
+        newCatalogs[index] = newCatalog;
+        context.setCatalogsLoaded(newCatalogs);
+    };
+
+    const selectCatalog = (index: number): void => {
+        if (index >= context.catalogsLoaded.length) {
+            return;
+        }
+
+        context.setCatalogInUse(context.catalogsLoaded[index]);
+    };
+
+    return {
+        updateCatalog: updateCatalog,
+        deleteCatalog: deleteCatalog,
+        selectCatalog: selectCatalog,
     };
 };
 

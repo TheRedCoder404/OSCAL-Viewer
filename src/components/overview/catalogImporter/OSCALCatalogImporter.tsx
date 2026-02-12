@@ -24,8 +24,8 @@ const OSCALCatalogImporter = (props: Props): ReactElement => {
         <>
             <h2>OSCAL Catalog Importer</h2>
             <List>
-                {catalogs?.map((catalog) => (
-                    <OSCALCatalogImporterListItem catalog={catalog}/>
+                {catalogs?.map((catalog, index) => (
+                    <OSCALCatalogImporterListItem catalog={catalog} index={index}/>
                 ))}
                 <CatalogJSONParserButton loadCatalog={loadCatalog}/>
             </List>
