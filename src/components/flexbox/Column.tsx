@@ -1,5 +1,5 @@
-import React, { ElementType } from 'react';
-import { FlexboxContainer, FlexBoxCssProperties } from 'components/flexbox/FlexboxContainer';
+import React, { type ElementType } from 'react';
+import { FlexboxContainer, type FlexBoxCssProperties } from 'components/flexbox/FlexboxContainer';
 import { createStyledComponent } from 'components/flexbox/StyledComponent';
 
 interface ColumnProps {

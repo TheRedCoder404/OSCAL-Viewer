@@ -1,8 +1,7 @@
 import type { ReactElement } from 'react';
-import { ListItem } from '@mui/material';
+import { Grid2, ListItem } from '@mui/material';
 import type { catalog } from 'types/oscal-types.ts';
 import CatalogImporterListItemButtons from './CatalogImporterListItemButtons.tsx';
-import Grid2 from '@mui/material/Unstable_Grid2';
 
 type Props = {
     catalog: catalog;
@@ -18,10 +17,10 @@ const OSCALCatalogImporterListItem = (props: Props): ReactElement => {
     return (
         <ListItem sx={{ width: '100%' }}>
             <Grid2 container={true} spacing={4} sx={{ width: '100%', alignItems: 'center', flexGrow: 1 }}>
-                <Grid2 xs={8}>
+                <Grid2 size={8}>
                     <h3>{catalog.metadata.title}</h3>
                 </Grid2>
-                <Grid2 xs={4}>
+                <Grid2 size={4}>
                     <CatalogImporterListItemButtons
                         index={index}
                     />

@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import CatalogJSONParserButton from 'components/utility/CatalogJSONParserButton.tsx';
-import { Button } from '@mui/material';
-import Grid2 from '@mui/material/Unstable_Grid2';
+import { Button, Grid2 } from '@mui/material';
 import { useManageCatalog } from 'contexts/CatalogsLoadedContext.tsx';
 import type { catalog } from 'types/oscal-types.ts';
 

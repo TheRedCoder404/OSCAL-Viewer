@@ -5,7 +5,6 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
 } from 'react-router-dom';
-import type { Router } from '@remix-run/router';
 import { Suspense, useMemo } from 'react';
 import Overview from 'routing/Overview.tsx';
 import { PageNotFound } from './routing/pageNotFound/PageNotFound.tsx';
@@ -15,7 +14,7 @@ type RoutesProps = {
     children?: React.ReactNode[] | React.ReactNode;
 };
 
-const createRouter = (children: React.ReactNode): Router => createBrowserRouter(createRoutesFromElements(
+const createRouter = (children: React.ReactNode) => createBrowserRouter(createRoutesFromElements(
     <Route
         path={'/'}
         element={children}
