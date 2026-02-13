@@ -1,12 +1,12 @@
-import { type ReactElement } from 'react';
+import { type ReactElement, type ReactNode } from 'react';
 import FileInput from './FileInput.tsx';
-import { ToolbarItemBox } from './StyledComponents.tsx';
 import type { catalog } from 'types/oscal-types.ts';
 
 type Props = {
     loadCatalog: (catalog: catalog) => void,
     buttonText?: string,
     disabled?: boolean,
+    children?: ReactNode,
 };
 
 const CatalogJSONParserButton = (props: Props): ReactElement => {
@@ -14,6 +14,7 @@ const CatalogJSONParserButton = (props: Props): ReactElement => {
         loadCatalog,
         buttonText,
         disabled = false,
+        children,
     } = props;
 
     const handleUploadOscalData = (files: FileList): void => {
@@ -41,15 +42,15 @@ const CatalogJSONParserButton = (props: Props): ReactElement => {
     };
     
     return (
-        <ToolbarItemBox sx={{ marginLeft: 'auto' }}>
-            <FileInput
-                onChange={handleUploadOscalData}
-                accept={'application/json'}
-                multiple={false}
-                standardButtonText={buttonText ?? 'Import Catalog'}
-                disabled={disabled}
-            />
-        </ToolbarItemBox>
+        <FileInput
+            onChange={handleUploadOscalData}
+            accept={'application/json'}
+            multiple={false}
+            standardButtonText={buttonText ?? 'Import Catalog'}
+            disabled={disabled}
+        >
+            {children}
+        </FileInput>
     );
 };
 

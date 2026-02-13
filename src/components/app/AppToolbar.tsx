@@ -4,7 +4,7 @@ import { useUserPreference } from 'hooks/preferences.ts';
 
 const AppToolbar: React.FC = () => {
     const [useDarkTheme, setDarkTheme] = useUserPreference('useDarkTheme');
-    const darkmodeToggle = false;
+    const darkmodeToggle = true;
     
     return (
         <AppBar

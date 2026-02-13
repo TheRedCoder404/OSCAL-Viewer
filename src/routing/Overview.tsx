@@ -5,7 +5,7 @@ import OSCALCatalogImporter from 'components/overview/catalogImporter/OSCALCatal
 
 const Overview = (): React.ReactNode => {
     return (
-        <Box sx={{ mt: 8, mb: 2 }}>
+        <Box>
             <Helmet>Overview</Helmet>
 
             <OSCALCatalogImporter/>

@@ -26,6 +26,7 @@ type useManageCatalogsReturnType = {
     updateCatalog: (index: number, newCatalog: catalog | undefined) => void
     deleteCatalog: (index: number) => void
     selectCatalog: (index: number) => void
+    importCatalog: (catalog: catalog) => void
 };
 
 const defaultContext: CatalogsLoadedContextType = {
@@ -89,10 +90,19 @@ export const useManageCatalog = (): useManageCatalogsReturnType => {
         context.setCatalogInUse(context.catalogsLoaded[index]);
     };
 
+    const importCatalog = (catalog: catalog): void => {
+        if (context.catalogsLoaded.every((catalogInArray) => {
+            return  (catalogInArray.uuid !== catalog.uuid && catalogInArray.metadata.version !== catalog.metadata.version);
+        })) {
+            context.setCatalogsLoaded([...context.catalogsLoaded, catalog]);
+        }
+    };
+
     return {
         updateCatalog: updateCatalog,
         deleteCatalog: deleteCatalog,
         selectCatalog: selectCatalog,
+        importCatalog: importCatalog,
     };
 };
 
